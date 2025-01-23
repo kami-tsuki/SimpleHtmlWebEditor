@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML Web Editor</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/codemirror.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="container">
+    <div class="menu">
+        <button id="file-menu-button">File</button>
+        <div id="file-menu" class="dropdown-content">
+            <button id="save-all">Save All</button>
+            <button id="load-file">Load</button>
+            <button id="clear-all">Clear</button>
+            <button id="close-editor">Close</button>
+        </div>
+    </div>
+    <div class="column code">
+        <div class="row">
+            <h2>HTML <span id="html-filename"></span>
+                <button id="html-save"><img src="{{ url_for('static', filename='save-icon.png') }}" alt="Save"></button>
+                <button id="html-load"><img src="{{ url_for('static', filename='load-icon.png') }}" alt="Load"></button>
+            </h2>
+            <textarea id="html-editor">{{ html }}</textarea>
+        </div>
+        <div class="row">
+            <h2>CSS <span id="css-filename"></span>
+                <button id="css-save"><img src="{{ url_for('static', filename='save-icon.png') }}" alt="Save"></button>
+                <button id="css-load"><img src="{{ url_for('static', filename='load-icon.png') }}" alt="Load"></button>
+            </h2>
+            <textarea id="css-editor">{{ css }}</textarea>
+        </div>
+        <div class="row">
+            <h2>JavaScript <span id="js-filename"></span>
+                <button id="js-save"><img src="{{ url_for('static', filename='save-icon.png') }}" alt="Save"></button>
+                <button id="js-load"><img src="{{ url_for('static', filename='load-icon.png') }}" alt="Load"></button>
+            </h2>
+            <textarea id="js-editor">{{ js }}</textarea>
+        </div>
+    </div>
+    <div class="column preview">
+        <iframe id="preview"></iframe>
+        <div id="console"></div>
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/codemirror.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/mode/xml/xml.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/mode/css/css.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/mode/javascript/javascript.min.js"></script>
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
